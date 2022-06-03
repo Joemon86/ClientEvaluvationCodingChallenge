@@ -12,6 +12,7 @@ class MeaningsViewModelTest: XCTestCase {
     
     var viewModel:MeaningsViewModel!
     var meanings:[MeaningCellViewModel]!
+    var searchResults:[MeaningCellViewModel]!
 
     override func setUpWithError() throws {
         super.setUp()
@@ -37,31 +38,32 @@ class MeaningsViewModelTest: XCTestCase {
         super.tearDown()
         viewModel = nil
         meanings = nil
+        searchResults = nil
     }
     
     func testFetchMeaningWithSearchResult() {
         let expectation = self.expectation(description: "fetchmeanings")
-        //expectation.isInverted = true
-        viewModel.fetchMeaning(with: "Hmm") { status,errorMessage  in
-            if status == true {
+        viewModel.fetchMeaning(with: "Hmm") { status,errorMessage, searchResult in
+            if status == true, let result = searchResult {
+                self.searchResults = result
                 expectation.fulfill()
-            } else {
             }
         }
         waitForExpectations(timeout: 10, handler: nil)
-        XCTAssertEqual(self.viewModel.maeningCellViewModel?.count, self.meanings.count)
+        XCTAssertEqual(searchResults.count, self.meanings.count)
     }
 
     func testFetchMeaningWithNoResult() {
             let expectation = self.expectation(description: "fetchmeanings")
-            viewModel.fetchMeaning(with: "U") { status,errorMessage  in
+            viewModel.fetchMeaning(with: "U") { status,errorMessage, searchResult  in
                 if status == true {
                 } else {
+                    self.searchResults = []
                     expectation.fulfill()
                 }
             }
             waitForExpectations(timeout: 10, handler: nil)
-            XCTAssertEqual(self.viewModel.maeningCellViewModel?.count, 0)
+            XCTAssertEqual(searchResults.count, 0)
         }
 
 }

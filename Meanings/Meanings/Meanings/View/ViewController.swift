@@ -13,6 +13,7 @@ class ViewController: UIViewController,Loadable {
     @IBOutlet weak var searchBar:UISearchBar!
     
     var viewModel: MeaningsViewModel!
+    var searchResults:[MeaningCellViewModel]?
     
     func initViewModel(viewModel:MeaningsViewModel = MeaningsViewModel()){
         self.viewModel = viewModel
@@ -33,7 +34,7 @@ extension ViewController:UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int
     {
         var numOfSections: Int = 0
-        if let model = viewModel.maeningCellViewModel, model.isEmpty {
+        if let model = self.searchResults, model.isEmpty {
             let noDataLabel: UILabel  = UILabel()
             tableView.backgroundView  = noDataLabel
             noDataLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +56,7 @@ extension ViewController:UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let model = viewModel.maeningCellViewModel else {
+        guard let model = self.searchResults else {
             return 0
         }
                   
@@ -64,7 +65,7 @@ extension ViewController:UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "meaningCell", for: indexPath) as! MeaningTableViewCell
-        let cellModel = viewModel.getMeaningCellModel(indexpath: indexPath)
+        let cellModel = self.searchResults?[indexPath.row]
         cell.cellViewModel = cellModel
         return cell
     }
@@ -94,7 +95,7 @@ extension ViewController:UISearchBarDelegate {
         }
         let searchText = text.trimmingCharacters(in: .whitespacesAndNewlines)
         showLoadingView()
-        viewModel.fetchMeaning(with: searchText) { [weak self] status, errorMessage in
+        viewModel.fetchMeaning(with: searchText) { [weak self] status, errorMessage, responseList in
             DispatchQueue.main.async {
                 self?.hideLoadingView()
                 if status == false {
@@ -102,7 +103,9 @@ extension ViewController:UISearchBarDelegate {
                         self?.showAlert(with: error)
                     }
                 }
-               
+                if let responseList = responseList {
+                    self?.searchResults = responseList
+                }
                 self?.meaningTableView.reloadData()
             }
         }

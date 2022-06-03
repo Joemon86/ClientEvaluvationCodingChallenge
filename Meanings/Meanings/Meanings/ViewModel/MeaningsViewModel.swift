@@ -15,9 +15,9 @@ class MeaningsViewModel:NSObject {
     
     var maeningCellViewModel: [MeaningCellViewModel]?
     
-    func fetchMeaning(with text:String, completion: @escaping (_ status:Bool, _ errorMessage:String?) -> Void) {
+    func fetchMeaning(with text:String, completion: @escaping (_ status:Bool, _ errorMessage:String?, _ searchResults:[MeaningCellViewModel]?) -> Void) {
         guard !text.isEmpty, let url = URL(string:baseURL + text) else {
-            completion(false, "Data Error")
+            completion(false, "Data Error",nil)
             return
         }
         apiManager.loadData(from: url) { result in
@@ -29,7 +29,7 @@ class MeaningsViewModel:NSObject {
                     if meaning.isEmpty {
                         print("Empty Data")
                         self.maeningCellViewModel = meanings
-                        completion(false,"Empty Data")
+                        completion(false,"Empty Data",self.maeningCellViewModel)
                         return
                     } else {
                         var lfs:[lfs] = []
@@ -40,17 +40,17 @@ class MeaningsViewModel:NSObject {
                             meanings.append(MeaningCellViewModel(meaningText: item.lf))
                         }
                         self.maeningCellViewModel = meanings
-                        completion(true,nil)
+                        completion(true,nil, self.maeningCellViewModel)
                         return
                     }
                 } catch let parseError {
                     print(parseError.localizedDescription)
-                    completion(false,parseError.localizedDescription)
+                    completion(false,parseError.localizedDescription, nil)
                     return
                 }
             case .error(let error):
                 print(error.localizedDescription)
-                completion(false,error.localizedDescription)
+                completion(false,error.localizedDescription, nil)
                 return
             }
         }
