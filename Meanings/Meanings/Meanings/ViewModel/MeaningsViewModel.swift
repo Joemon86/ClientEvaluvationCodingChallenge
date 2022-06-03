@@ -7,9 +7,7 @@
 
 import Foundation
 
-fileprivate var baseURL = "http://www.nactem.ac.uk/software/acromine/dictionary.py?sf="
-
-typealias CompletionHandler = (_ status:Bool, _ errorMessage:String?) -> Void
+var baseURL = "http://www.nactem.ac.uk/software/acromine/dictionary.py?sf="
 
 class MeaningsViewModel:NSObject {
     
@@ -17,7 +15,7 @@ class MeaningsViewModel:NSObject {
     
     var maeningCellViewModel: [MeaningCellViewModel]?
     
-    func fetchMeaning(with text:String, completion: @escaping (CompletionHandler)) {
+    func fetchMeaning(with text:String, completion: @escaping (_ status:Bool, _ errorMessage:String?) -> Void) {
         guard !text.isEmpty, let url = URL(string:baseURL + text) else {
             completion(false, "Data Error")
             return

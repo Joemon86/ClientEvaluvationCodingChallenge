@@ -26,11 +26,11 @@ struct Meaning : Decodable {
     let sf:String
     let lfs:[lfs]?
     
-    enum CodingKeys : String, CodingKey {
+    /*enum CodingKeys : String, CodingKey {
             case sf = "sf"
             case lfs
         
-        }
+        }*/
 }
 
 struct lfs:Decodable {
@@ -38,11 +38,11 @@ struct lfs:Decodable {
     let freq:Int64
     let since:Int64
     
-    enum CodingKeys : String, CodingKey {
+    /*enum CodingKeys : String, CodingKey {
         case lf = "lf"
         case freq = "freq"
         case since = "since"
-    }
+    }*/
     
 }
 

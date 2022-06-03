@@ -22,7 +22,7 @@ class ViewController: UIViewController,Loadable {
         super.viewDidLoad()
         searchBar.showsCancelButton = true
         searchBar.searchTextField.clearButtonMode = .never
-        meaningTableView.rowHeight = 44
+        meaningTableView.estimatedRowHeight = 44
         meaningTableView.delegate = self
         initViewModel()
     }
@@ -33,20 +33,23 @@ extension ViewController:UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int
     {
         var numOfSections: Int = 0
-        if viewModel.maeningCellViewModel?.isEmpty == false
-        {
-            tableView.separatorStyle = .singleLine
-            numOfSections            = 1
-            tableView.backgroundView = nil
-        }
-        else
-        {
-            let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+        if let model = viewModel.maeningCellViewModel, model.isEmpty {
+            let noDataLabel: UILabel  = UILabel()
+            tableView.backgroundView  = noDataLabel
+            noDataLabel.translatesAutoresizingMaskIntoConstraints = false
+            noDataLabel.widthAnchor.constraint(equalToConstant: meaningTableView.bounds.width).isActive = true
+            noDataLabel.heightAnchor.constraint(equalToConstant: meaningTableView.bounds.height).isActive = true
+            noDataLabel.centerXAnchor.constraint(equalTo: meaningTableView.centerXAnchor).isActive = true
+            noDataLabel.centerYAnchor.constraint(equalTo: meaningTableView.centerYAnchor).isActive = true
+            
             noDataLabel.text          = "No meanings available"
             noDataLabel.textColor     = UIColor.black
             noDataLabel.textAlignment = .center
-            tableView.backgroundView  = noDataLabel
             tableView.separatorStyle  = .none
+        } else {
+            tableView.separatorStyle = .singleLine
+            numOfSections = 1
+            tableView.backgroundView = nil
         }
         return numOfSections
     }
@@ -69,7 +72,7 @@ extension ViewController:UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 44
+            return UITableView.automaticDimension
         }
 }
 
@@ -116,21 +119,7 @@ extension ViewController {
     
     func showAlert(with message:String) {
         let alert = UIAlertController(title: "Meanings", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            switch action.style{
-                case .default:
-                print("default")
-                
-                case .cancel:
-                print("cancel")
-                
-                case .destructive:
-                print("destructive")
-                
-            @unknown default:
-                fatalError()
-            }
-        }))
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
