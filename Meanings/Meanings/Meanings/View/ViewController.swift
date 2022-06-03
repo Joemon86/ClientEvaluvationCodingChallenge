@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController,Loadable {
+   
     @IBOutlet weak var meaningTableView:UITableView!
     @IBOutlet weak var searchBar:UISearchBar!
     
@@ -90,16 +90,17 @@ extension ViewController:UISearchBarDelegate {
             return
         }
         let searchText = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        viewModel.fetchMeaning(with: searchText) { status, errorMessage in
-            if status == false {
-                if let error = errorMessage {
-                    DispatchQueue.main.async {
-                        self.showAlert(with: error)
+        showLoadingView()
+        viewModel.fetchMeaning(with: searchText) { [weak self] status, errorMessage in
+            DispatchQueue.main.async {
+                self?.hideLoadingView()
+                if status == false {
+                    if let error = errorMessage {
+                        self?.showAlert(with: error)
                     }
                 }
-            } 
-            DispatchQueue.main.async {
-                self.meaningTableView.reloadData()
+               
+                self?.meaningTableView.reloadData()
             }
         }
     }

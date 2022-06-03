@@ -18,6 +18,7 @@
 		2DC065462848B94A007653DD /* MeaningsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC065452848B94A007653DD /* MeaningsUITests.swift */; };
 		2DC065482848B94A007653DD /* MeaningsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC065472848B94A007653DD /* MeaningsUITestsLaunchTests.swift */; };
 		2DC24AE228492F2B006502AA /* APIManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC24AE128492F2B006502AA /* APIManagerTest.swift */; };
+		2DC2C0BF284A21F60089FE38 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC2C0BE284A21F60089FE38 /* LoadingView.swift */; };
 		2DF4A1A52848C93B008EA5E9 /* MeaningsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4A1A42848C93B008EA5E9 /* MeaningsViewModel.swift */; };
 		2DF4A1A82848C983008EA5E9 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4A1A72848C983008EA5E9 /* APIManager.swift */; };
 		2DF4A1AA2848C9B9008EA5E9 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4A1A92848C9B9008EA5E9 /* NetworkProtocol.swift */; };
@@ -62,6 +63,7 @@
 		2DC065452848B94A007653DD /* MeaningsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningsUITests.swift; sourceTree = "<group>"; };
 		2DC065472848B94A007653DD /* MeaningsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2DC24AE128492F2B006502AA /* APIManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTest.swift; sourceTree = "<group>"; };
+		2DC2C0BE284A21F60089FE38 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		2DF4A1A42848C93B008EA5E9 /* MeaningsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningsViewModel.swift; sourceTree = "<group>"; };
 		2DF4A1A72848C983008EA5E9 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2DF4A1A92848C9B9008EA5E9 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				2DC065212848B948007653DD /* AppDelegate.swift */,
 				2DC065232848B948007653DD /* SceneDelegate.swift */,
+				2DC2C0BE284A21F60089FE38 /* LoadingView.swift */,
 				2DF4A1A62848C96B008EA5E9 /* APIManager */,
 				2DF4A1A32848C90C008EA5E9 /* Meanings */,
 				2DC065272848B948007653DD /* Main.storyboard */,
@@ -343,6 +346,7 @@
 				2DF4A1A82848C983008EA5E9 /* APIManager.swift in Sources */,
 				2DC065262848B948007653DD /* ViewController.swift in Sources */,
 				2DF4A1B42848E945008EA5E9 /* MeaningCellViewModel.swift in Sources */,
+				2DC2C0BF284A21F60089FE38 /* LoadingView.swift in Sources */,
 				2DC065222848B948007653DD /* AppDelegate.swift in Sources */,
 				2DF4A1AA2848C9B9008EA5E9 /* NetworkProtocol.swift in Sources */,
 				2DF4A1A52848C93B008EA5E9 /* MeaningsViewModel.swift in Sources */,
