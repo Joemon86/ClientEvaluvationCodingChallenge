@@ -56,14 +56,4 @@ class MeaningsViewModel:NSObject {
         }
     }
     
-    func getMeaningCellModel(indexpath: IndexPath) -> MeaningCellViewModel? {
-        guard let model = maeningCellViewModel else {
-            return nil
-        }
-        return model[indexpath.row]
-    }
-    
-    func clearData(){
-        self.maeningCellViewModel = []
-    }
 }

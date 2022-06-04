@@ -27,6 +27,11 @@ class ViewController: UIViewController,Loadable {
         meaningTableView.delegate = self
         initViewModel()
     }
+    
+    func clearList() {
+        self.searchResults = []
+        self.meaningTableView.reloadData()
+    }
 }
 
 extension ViewController:UITableViewDataSource {
@@ -86,14 +91,23 @@ extension ViewController:UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        guard let text = searchBar.text else {
-            return
-        }
-        guard text.isEmpty != true else {
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        self.clearList()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard searchText.isEmpty != true else {
             self.showAlert(with: "Please enter any text")
+            self.clearList()
             return
         }
-        let searchText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        let searchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard (searchText.count >= 2 && searchText.count < 5) else {
+            return
+        }
         showLoadingView()
         viewModel.fetchMeaning(with: searchText) { [weak self] status, errorMessage, responseList in
             DispatchQueue.main.async {
@@ -109,12 +123,6 @@ extension ViewController:UISearchBarDelegate {
                 self?.meaningTableView.reloadData()
             }
         }
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        viewModel.clearData()
-        self.meaningTableView.reloadData()
     }
 }
 
