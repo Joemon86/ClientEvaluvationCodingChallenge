@@ -23,7 +23,6 @@ class APIManagerTest: XCTestCase {
         super.tearDown()
         mockSession = nil
         apiManger = nil
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
     func testApiforCorrectUrl() {

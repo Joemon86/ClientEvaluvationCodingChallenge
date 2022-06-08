@@ -106,7 +106,7 @@ extension ViewController:UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard searchText.isEmpty != true else {
+        guard !searchText.isEmpty else {
             self.showAlert(with: "Please enter any text")
             self.clearList()
             return
@@ -119,7 +119,7 @@ extension ViewController:UISearchBarDelegate {
         viewModel.fetchMeaning(with: searchText) { [weak self] status, errorMessage, responseList in
             DispatchQueue.main.async {
                 self?.hideLoadingView()
-                if status == false {
+                if !status {
                     if let error = errorMessage {
                         self?.showAlert(with: error)
                     }
