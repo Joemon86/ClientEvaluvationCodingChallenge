@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D690CCC284FBBEE00D17782 /* ViewControllTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D690CCB284FBBEE00D17782 /* ViewControllTest.swift */; };
 		2DC065222848B948007653DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC065212848B948007653DD /* AppDelegate.swift */; };
 		2DC065242848B948007653DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC065232848B948007653DD /* SceneDelegate.swift */; };
 		2DC065262848B948007653DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC065252848B948007653DD /* ViewController.swift */; };
@@ -14,7 +15,6 @@
 		2DC0652C2848B948007653DD /* Meanings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0652A2848B948007653DD /* Meanings.xcdatamodeld */; };
 		2DC0652E2848B949007653DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC0652D2848B949007653DD /* Assets.xcassets */; };
 		2DC065312848B949007653DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC0652F2848B949007653DD /* LaunchScreen.storyboard */; };
-		2DC0653C2848B94A007653DD /* MeaningsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0653B2848B94A007653DD /* MeaningsTests.swift */; };
 		2DC065462848B94A007653DD /* MeaningsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC065452848B94A007653DD /* MeaningsUITests.swift */; };
 		2DC065482848B94A007653DD /* MeaningsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC065472848B94A007653DD /* MeaningsUITestsLaunchTests.swift */; };
 		2DC24AE228492F2B006502AA /* APIManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC24AE128492F2B006502AA /* APIManagerTest.swift */; };
@@ -48,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D690CCB284FBBEE00D17782 /* ViewControllTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllTest.swift; sourceTree = "<group>"; };
 		2DC0651E2848B948007653DD /* Meanings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meanings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC065212848B948007653DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DC065232848B948007653DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		2DC065302848B949007653DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DC065322848B949007653DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DC065372848B949007653DD /* MeaningsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeaningsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DC0653B2848B94A007653DD /* MeaningsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningsTests.swift; sourceTree = "<group>"; };
 		2DC065412848B94A007653DD /* MeaningsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeaningsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC065452848B94A007653DD /* MeaningsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningsUITests.swift; sourceTree = "<group>"; };
 		2DC065472848B94A007653DD /* MeaningsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningsUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -140,11 +140,11 @@
 		2DC0653A2848B949007653DD /* MeaningsTests */ = {
 			isa = PBXGroup;
 			children = (
-				2DC0653B2848B94A007653DD /* MeaningsTests.swift */,
 				2DF4A1B5284907E6008EA5E9 /* MeaningsViewModelTest.swift */,
 				2DC24AE128492F2B006502AA /* APIManagerTest.swift */,
 				2DF4A1B728490E5C008EA5E9 /* Meanings.json */,
 				2DF4A1B92849111C008EA5E9 /* XCTestCase+JSON.swift */,
+				2D690CCB284FBBEE00D17782 /* ViewControllTest.swift */,
 			);
 			path = MeaningsTests;
 			sourceTree = "<group>";
@@ -362,9 +362,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DC24AE228492F2B006502AA /* APIManagerTest.swift in Sources */,
+				2D690CCC284FBBEE00D17782 /* ViewControllTest.swift in Sources */,
 				2DF4A1BA2849111C008EA5E9 /* XCTestCase+JSON.swift in Sources */,
 				2DF4A1B6284907E6008EA5E9 /* MeaningsViewModelTest.swift in Sources */,
-				2DC0653C2848B94A007653DD /* MeaningsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

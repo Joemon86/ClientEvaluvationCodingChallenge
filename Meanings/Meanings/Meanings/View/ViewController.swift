@@ -32,6 +32,13 @@ class ViewController: UIViewController,Loadable {
         self.searchResults = []
         self.meaningTableView.reloadData()
     }
+    
+    func checkSearchTextLength(searchText:String) -> Bool {
+        guard (searchText.count >= 2 && searchText.count < 5) else {
+            return false
+        }
+        return true
+    }
 }
 
 extension ViewController:UITableViewDataSource {
@@ -105,7 +112,7 @@ extension ViewController:UISearchBarDelegate {
             return
         }
         let searchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard (searchText.count >= 2 && searchText.count < 5) else {
+        guard checkSearchTextLength(searchText: searchText) else {
             return
         }
         showLoadingView()

@@ -11,7 +11,11 @@ var baseURL = "http://www.nactem.ac.uk/software/acromine/dictionary.py?sf="
 
 class MeaningsViewModel:NSObject {
     
-    var apiManager = APIManager()
+    var apiManager:APIManager!
+    
+    init(apiManger:APIManager = APIManager()) {
+        self.apiManager = apiManger
+    }
     
     var maeningCellViewModel: [MeaningCellViewModel]?
     
