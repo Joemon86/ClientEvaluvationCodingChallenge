@@ -9,7 +9,7 @@ import Foundation
 
 var baseURL = "http://www.nactem.ac.uk/software/acromine/dictionary.py?sf="
 
-class MeaningsViewModel:NSObject {
+class MeaningsViewModel {
     
     var apiManager:APIManager!
     
