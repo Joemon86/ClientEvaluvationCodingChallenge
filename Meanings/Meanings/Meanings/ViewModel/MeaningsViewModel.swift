@@ -19,6 +19,8 @@ class MeaningsViewModel {
     
     var maeningCellViewModel: [MeaningCellViewModel]?
     
+    //MARK: API Call
+    
     func fetchMeaning(with text:String, completion: @escaping (_ status:Bool, _ errorMessage:String?, _ searchResults:[MeaningCellViewModel]?) -> Void) {
         guard !text.isEmpty, let url = URL(string:baseURL + text) else {
             completion(false, "Data Error",nil)

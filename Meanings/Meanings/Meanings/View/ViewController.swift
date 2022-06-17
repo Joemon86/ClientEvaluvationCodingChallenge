@@ -41,6 +41,8 @@ class ViewController: UIViewController,Loadable {
     }
 }
 
+// MARK: - Tableview Datasource
+
 extension ViewController:UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int
@@ -83,11 +85,16 @@ extension ViewController:UITableViewDataSource {
     }
 }
 
+//MARK: Tableview Delegate
+
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return UITableView.automaticDimension
         }
 }
+
+
+//MARK: - Searchbar Delegate
 
 extension ViewController:UISearchBarDelegate {
     
@@ -132,6 +139,8 @@ extension ViewController:UISearchBarDelegate {
         }
     }
 }
+
+//MARK: Alert View
 
 extension ViewController {
     
