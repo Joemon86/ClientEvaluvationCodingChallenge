@@ -16,6 +16,7 @@ class MeaningTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    // Using Property Observer for updating the meaning label in Cell
     var cellViewModel:MeaningCellViewModel? {
         didSet {
             meaning.text = cellViewModel?.meaningText
