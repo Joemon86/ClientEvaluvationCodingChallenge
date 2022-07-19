@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Meanings
+//  Meanings Viewcontroller
 //
 //  Created by 1964058 on 02/06/22.
 //
