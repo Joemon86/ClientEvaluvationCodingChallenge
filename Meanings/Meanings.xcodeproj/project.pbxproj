@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D690CCC284FBBEE00D17782 /* ViewControllTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D690CCB284FBBEE00D17782 /* ViewControllTest.swift */; };
 		2DC065222848B948007653DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC065212848B948007653DD /* AppDelegate.swift */; };
 		2DC065242848B948007653DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC065232848B948007653DD /* SceneDelegate.swift */; };
 		2DC065262848B948007653DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC065252848B948007653DD /* ViewController.swift */; };
@@ -48,7 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D690CCB284FBBEE00D17782 /* ViewControllTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllTest.swift; sourceTree = "<group>"; };
 		2DC0651E2848B948007653DD /* Meanings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meanings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC065212848B948007653DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DC065232848B948007653DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 				2DC24AE128492F2B006502AA /* APIManagerTest.swift */,
 				2DF4A1B728490E5C008EA5E9 /* Meanings.json */,
 				2DF4A1B92849111C008EA5E9 /* XCTestCase+JSON.swift */,
-				2D690CCB284FBBEE00D17782 /* ViewControllTest.swift */,
 			);
 			path = MeaningsTests;
 			sourceTree = "<group>";
@@ -362,7 +359,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DC24AE228492F2B006502AA /* APIManagerTest.swift in Sources */,
-				2D690CCC284FBBEE00D17782 /* ViewControllTest.swift in Sources */,
 				2DF4A1BA2849111C008EA5E9 /* XCTestCase+JSON.swift in Sources */,
 				2DF4A1B6284907E6008EA5E9 /* MeaningsViewModelTest.swift in Sources */,
 			);
