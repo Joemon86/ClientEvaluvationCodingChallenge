@@ -41,6 +41,14 @@ class MeaningsViewModelTest: XCTestCase {
         searchResults = nil
     }
     
+    func testSearchBarTextMinAndMaxLength() {
+        if viewModel.checkSearchTextLength(searchText: "Hmmy") {
+            XCTAssert(true)
+        } else {
+            XCTAssert(false)
+        }
+    }
+    
     func testFetchMeaningWithSearchResult() {
         let expectation = self.expectation(description: "fetchmeanings")
         viewModel.fetchMeaning(with: "Hmm") { status,errorMessage, searchResult in

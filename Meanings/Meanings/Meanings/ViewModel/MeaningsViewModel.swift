@@ -19,6 +19,14 @@ class MeaningsViewModel {
     
     var maeningCellViewModel: [MeaningCellViewModel]?
     
+    
+    func checkSearchTextLength(searchText:String) -> Bool {
+        guard (searchText.count >= 2 && searchText.count < 5) else {
+            return false
+        }
+        return true
+    }
+    
     //MARK: API Call
     
     func fetchMeaning(with text:String, completion: @escaping (_ status:Bool, _ errorMessage:String?, _ searchResults:[MeaningCellViewModel]?) -> Void) {
