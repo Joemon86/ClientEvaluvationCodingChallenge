@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Network Protocol
 protocol NetworkSession {
     typealias Handler = (Data?, URLResponse?, Error?) -> Void
     func loadData(from url:URL, completion: @escaping Handler)
